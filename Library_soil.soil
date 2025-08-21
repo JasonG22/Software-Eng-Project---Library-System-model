@@ -1,0 +1,73 @@
+-- SOIL
+
+!new Member('Dave')
+!Dave.name := 'David Byrne'
+!Dave.address := '7, O' Connell Street, Dublin'
+!Dave.amountBorrowed := 3
+!Dave.no_onloan := 0
+!Dave.limit := 6
+!Dave.fine := 0
+!Dave.status := 'Borrowed'
+!Dave.memberID := 1234567
+
+!new Member('Jay')
+!Jay.name := 'Jason Gaynor'
+!Jay.address := 'The Shop 133 Galtymore Rd, Drimnagh'
+!Jay.amountBorrowed := 1
+!Jay.no_onloan := 1
+!Jay.limit := 6
+!Jay.fine := 0
+!Jay.status := 'Borrowed'
+!Jay.memberID := 014557324
+
+!new Employee('Tom')
+!Tom.name := 'Tommy Mustafa'
+!Tom.address := 'The Academy Index, Dublin 1'
+!Tom.amountBorrowed := 0
+!Tom.no_onloan := 0
+!Tom.limit := 12
+!Tom.fine := 0
+!Tom.status := 'Reserved'
+!Tom.employeeID := 123456789
+!Tom.role := 'Librarian'
+
+!new Book('PridePrejudice')
+!PridePrejudice.title := 'Pride and Prejudice'
+!PridePrejudice.author := 'Jane Austen'
+!PridePrejudice.amount := 2
+!PridePrejudice.available := 0
+!PridePrejudice.createCopy()
+
+!new Book('Dune')
+!Dune.title := 'Dune'
+!Dune.author := 'Frank Herbert'
+!Dune.amount := 2
+!Dune.available := 1
+!Dune.createCopy()
+
+!new Book('Sapiens')
+!Sapiens.title := 'Sapiens: A Brief History of Humankind'
+!Sapiens.author := 'Yuval Noah Harari'
+!Sapiens.amount := 2
+!Sapiens.available := 1
+!Sapiens.createCopy()
+
+!Dave.borrow(Copy1)
+!Dave.borrow(Copy5)
+
+!Jay.reserve(Copy4)
+!Jay.removeReservation(Copy4)
+!Jay.borrow(Copy4)
+
+!Tom.reserve(Copy2)
+
+!Copy4.onLoan := true
+
+!Tom.applyFine(Jay, 30)
+!openter Jay payFine(40)
+!Jay.fine := (Jay.fine - 40)
+!opexit
+
+!Tom.applyFine(Jay, 100)
+
+!Dave.borrow(Copy3)
